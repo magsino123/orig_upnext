@@ -16,6 +16,7 @@ if(isset($_POST['login_button'])) {
 		//update user status
 		mysqli_query($conn,"update agent_list_tb set login_status = '1' where username = '$username'");
 
+
 	} else {				
 		echo "username or password does not exist or Account is Already in use !"; // wrong details 
 	}		

@@ -25,6 +25,10 @@
 		$aog = '';
 		$three = '';
 		$six = '';
+
+		$date1 = date('Y-m-d');
+		$datetime = new DateTime($date1);
+		$dtime = $datetime->format('Y-m-d');
 		$response = array();
 
 		$result = mysqli_query($conn,"SELECT * FROM afmv WHERE MAKE='".$make."' AND MODEL='".$model."' AND VARIANT='".$var."' AND COLOR='".$color."' AND TRANS='".$trans."' AND YM='".$year."'");
@@ -33,7 +37,7 @@
 			$fmv_id = $row['fmv_id'];
 		}
 
-		$result1 = mysqli_query($conn,"INSERT INTO user_quotes ( `tracking_no`, `aog`, `gross`, `fmv_id`, `rbi`, `rpd`, `client_name`, `markup`, `date_created`, `a_id`,`car_usage`,`sum_insured`,`a_type`,`plate_no`,`contact_no`,`providers`, `one_time_payment`,`proposal_status`) VALUES ('".$tracking_no."','".$aog."','".$gross."','".$fmv_id."','".$rbi."','".$rpd."','".$namex."','".$g_rate."','".$date."','".$a_id."','".$usage."','".$fmv."','upnext','".$plateno."','".$contact."','".$provider."','".$gross."','')");
+		$result1 = mysqli_query($conn,"INSERT INTO user_quotes ( `tracking_no`, `aog`, `gross`, `fmv_id`, `rbi`, `rpd`, `client_name`, `markup`, `date_created`, `a_id`,`car_usage`,`sum_insured`,`a_type`,`plate_no`,`contact_no`,`providers`, `one_time_payment`,`proposal_status`,`proposal_start_date`) VALUES ('".$tracking_no."','".$aog."','".$gross."','".$fmv_id."','".$rbi."','".$rpd."','".$namex."','".$g_rate."','".$date."','".$a_id."','".$usage."','".$fmv."','upnext','".$plateno."','".$contact."','".$provider."','".$gross."','','".$dtime."')");
 
 		if($result)
     {

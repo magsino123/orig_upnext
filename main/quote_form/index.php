@@ -247,7 +247,11 @@ header("location:../index.php");
 					 $('#major_area').attr('disabled',false);
 					 $('#validate').attr('disabled',false);
 					
-			}																	
+			}		
+
+			if(plate == ''){
+				 $('#major_area').attr('disabled',true);
+			}															
 			}
 			});
 		});
@@ -256,13 +260,19 @@ header("location:../index.php");
 			event.preventDefault();
 			var cn = $("#client_name").val();
 			var contact = $("#contact").val();
+			var plte = $("#plate").val();
+			var sum =  $("#fmv").val();
 
 			if (cn == '') {
-				$("#error1").html("<p style='color:red'>Client Name is Required !");
+				swal("Client Name is Required !", "Please Enter Client Name !");
+				document.getElementById('client_name').style.borderColor = "red";
 			}else if(contact == ''){
-				$("#error2").html("<p style='color:red'>Contact is Required !");
-			}else{
-				$("#error3").html("<p style='color:red'>Plate Number is Required !");
+				swal("Contact is Required !", "Please Enter Contact Number !");
+			}else if(plte == ''){
+				swal("Plate Number is Required !", "Please Enter Plate Number!");
+			}else if (sum == '') {
+				swal("Sum Insured is Required !", "Please Enter Sum Insured !");
 			}
+			
 		})
 	</script>
